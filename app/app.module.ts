@@ -18,17 +18,21 @@ import { FooterComponent } from '../app/shared/footer/footer.component';
 
 import { DashboardModule } from './product-dashboard/dashboard.module';
 
-
-
 import { ProductDashboardComponent } from '../app/product-dashboard/containers/product-dashboard/product-dashboard.component';
 
 
+import { AdminModule } from './log-in/admin.module';
 
 const routes: Routes = [
-
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent }
+  { path: '', loadChildren: () => import(`./log-in/admin.module`).then(m => m.AdminModule) }
 ];
+
+
+// const routes: Routes = [
+
+//   { path: '', component: HomeComponent, pathMatch: 'full' },
+//   { path: '**', component: NotFoundComponent }
+// ];
 
 @NgModule({
   declarations: [
@@ -44,11 +48,13 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    DashboardModule
+    DashboardModule,
+    AdminModule
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent],
   // providers: [ AuthGuard, AuthService]
+
 
 })
 export class AppModule {}
