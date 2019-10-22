@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="product-detail">
+    <span class="status" [class.available]="detail.available"></span>
+    <div *ngIf="editing">
+      <input type="text" [value]="detail.name" (input)="onNameChange(name.value)" #name>
+    </div>
+    <div *ngIf="!editing">
+      {{ detail.name }}
+    </div>
+    <button (click)="toggleEdit()">
+      {{ editing ? 'Done' : 'Edit' }}
+    </button>
+    <button (click)="onRemove()">
+      Remove
+    </button>
+    <button (click)="goToProduct()">
+      View
+    </button>
+  </div>
+</div>

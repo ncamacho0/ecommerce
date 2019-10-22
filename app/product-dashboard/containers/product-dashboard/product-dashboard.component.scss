@@ -1,0 +1,26 @@
+.status {
+  width: 10px;
+  height: 10px;
+  background: #c0392b;
+  display: block;
+  margin: 8px 10px 0 0;
+  float: left;
+  border-radius: 50%;
+  &.available {
+    background: #2ecc71;
+  }
+}
+.dashboard{
+  flex-direction: column;
+  margin-bottom: 3rem;
+
+
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product {
+  flex:  1 1 5rem;
+  border: 1px solid black;
+}

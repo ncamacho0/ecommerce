@@ -1,0 +1,20 @@
+<nav class="nav">
+  <ul class="nav-menu">
+    <li *ngFor="let item of nav" class="item-menu">
+      <a [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.exact }">
+        {{ item.name }}
+      </a>
+    <div *ngIf="item.subMenu">
+      <ul class="item-submenu">
+        <li class="dropdown" *ngFor="let subMenu of item.subMenu">
+            <div class="dropdown-content">
+              <a [routerLink]="subMenu.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: subMenu.exact }">
+                {{ subMenu.name }}
+              </a>
+            </div>
+          </li>
+      </ul>
+      </div>
+    </li>
+  </ul>
+</nav>

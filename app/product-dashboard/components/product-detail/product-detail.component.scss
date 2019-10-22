@@ -1,0 +1,20 @@
+.status {
+  width: 10px;
+  height: 10px;
+  background: #c0392b;
+  display: block;
+  margin: 8px 10px 0 0;
+  float: left;
+  border-radius: 50%;
+  &.available {
+    background: #2ecc71;
+  }
+}
+
+.product-detail{
+  margin: .5rem;
+  padding: 1rem;
+  border: 1px black solid ;
+  flex: 1 1 15rem;
+
+}

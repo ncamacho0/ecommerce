@@ -1,0 +1,38 @@
+<div class="product-form-edit center">
+  <form class="form" (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate>
+    <div>
+      Product ID:
+      <input type="number" name="id" required #id="ngModel" [ngModel]="detail?.id">
+      <div *ngIf="id?.errors?.required && id.dirty" class="error">
+        Product ID is required
+      </div>
+    </div>
+
+    <div>
+      Product name:
+      <input type="text" name="name" required #name="ngModel" [ngModel]="detail?.name">
+      <div *ngIf="name?.errors?.required && name.dirty" class="error">
+        Product name is required
+      </div>
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" name="available" [ngModel]="detail?.available" (ngModelChange)="toggleAvailable($event)">
+      </label>
+    </div>
+
+    <div>
+      Quantity ID:
+      <input type="number" name="quantity" required #quantity="ngModel" [ngModel]="detail?.quantity">
+      <div *ngIf="quantity?.errors?.required && quantity.dirty" class="error">
+        Product quantity is required
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">
+      Update
+    </button>
+
+  </form>
+</div>

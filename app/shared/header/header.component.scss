@@ -1,0 +1,39 @@
+.nav {
+  margin: 0 0 10px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid #dce5f2;
+  display: flex;
+  justify-content: flex-end;
+
+.nav-menu {
+  width: 40vw;
+  li {
+    display: inline-block;
+    text-decoration: none;
+  }
+}
+  a {
+    background: #3a4250;
+    color: #fff;
+    padding: 4px 10px;
+    margin: 0 2px;
+    border-radius: 2px;
+    &.active {
+      color: #b690f1;
+      background: #363c48;
+    }
+  }
+}
+
+.item-menu {
+  display: inline;
+
+}
+// .item-submenu {
+//   display: none;
+// }
+
+
+// .item-menu a:hover .item-submenu .dropdown .dropdown-content {
+//   display: block;
+// }

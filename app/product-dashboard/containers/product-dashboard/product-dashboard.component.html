@@ -1,0 +1,16 @@
+<div class="dashboard center">
+  <product-count [items]="products"> </product-count>
+  <div *ngFor="let product of products">
+      {{ product.name }}
+    </div>
+  <div class="container center">
+    <product-detail
+      *ngFor="let product of products"
+      [detail]="product"
+      (view)="handleView($event)"
+      (edit)="handleEdit($event)"
+      (remove)="handleRemove($event)"
+    >
+    </product-detail>
+  </div>
+</div>

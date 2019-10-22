@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "Camisa primero gg jeje",
+      "available": false,
+      "quantity": 7
+    },
+    {
+      "id": 3,
+      "name": "Camisa 3",
+      "available": true,
+      "quantity": 9
+    },
+    {
+      "id": 4,
+      "name": "Camisa 4",
+      "available": false,
+      "quantity": 10
+    },
+    {
+      "id": 5,
+      "name": "Camisa 5",
+      "available": true,
+      "quantity": 11
+    },
+    {
+      "id": 88,
+      "name": "producto 80",
+      "available": null,
+      "quantity": 19
+    },
+    {
+      "id": 12,
+      "name": "productooo",
+      "available": true,
+      "quantity": 12
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "productName": "Camisa 100",
+      "amount": 100,
+      "status": "pendiente"
+    },
+    {
+      "id": 2,
+      "productName": "Camisa 200",
+      "amount": 200,
+      "status": "enviado"
+    },
+    {
+      "id": 1,
+      "productName": "Camisa 300",
+      "amount": 300,
+      "status": "recibido"
+    }
+  ]
+}
