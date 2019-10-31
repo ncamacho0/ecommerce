@@ -6,50 +6,38 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-
-//components
-import { HomeComponent } from './home.component';
-import { NotFoundComponent } from './not-found.component';
-
+//Routes
+import { APP_ROUTES } from './app.routes';
 
 //shared
 import { HeaderComponent } from '../app/shared/header/header.component';
 import { FooterComponent } from '../app/shared/footer/footer.component';
 
-import { DashboardModule } from './product-dashboard/dashboard.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './page-not-found/page-not-found.component';
 
-import { ProductDashboardComponent } from '../app/product-dashboard/containers/product-dashboard/product-dashboard.component';
-
-
-import { AdminModule } from './log-in/admin.module';
-
-const routes: Routes = [
-  { path: '', loadChildren: () => import(`./log-in/admin.module`).then(m => m.AdminModule) }
-];
-
-
+//Lazy loading
 // const routes: Routes = [
-
-//   { path: '', component: HomeComponent, pathMatch: 'full' },
-//   { path: '**', component: NotFoundComponent }
+//   { path: '', loadChildren: () => import(`./log-in/admin.module`).then(m => m.AdminModule) }
 // ];
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    NotFoundComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
+    NotFoundComponent
 
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
-    RouterModule.forRoot(routes),
-    DashboardModule,
-    AdminModule
+    RouterModule.forRoot(APP_ROUTES),
+    DashboardModule
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent],

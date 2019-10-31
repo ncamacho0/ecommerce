@@ -1,60 +1,70 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http, RequestOptions, Response } from '@angular/http';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
+import { Injectable } from "@angular/core";
+import { Headers, Http, RequestOptions, Response } from "@angular/http";
 
-const API: string = '/api/';
+import { HttpClient, HttpHeaders} from "@angular/common/http";
+import { Observable, throwError } from "rxjs";
+
+import { retry, catchError } from "rxjs/operators";
+
+const API: string = "/api/";
 
 @Injectable()
 export class ApiService {
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   getAll(json_name: string): Observable<any[]> {
-    return this.http
-      .get(`${API}/${json_name}`)
-      .map((response: Response) => response.json())
-      .catch((error: any) => Observable.throw(error.json()));
+    return this.http.get<any>(`${API}/${json_name}`).pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    );
   }
 
   getOne(json_name: string, id: number): Observable<any> {
-    return this.http
-      .get(`${API}/${json_name}/${id}`)
-      .map((response: Response) => response.json())
-      .catch((error: any) => Observable.throw(error.json()));
+    return this.http.get(`${API}/${json_name}/${id}`).pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    );
   }
 
   put<T>(json_name: string, payload: T): Observable<any> {
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    return this.http
-      .post(`${API}/${json_name}/`, payload, options)
-      .map((response: Response) => response.json())
-      .catch((error: any) => Observable.throw(console.log(error.json())));
+    const options = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+
+    return this.http.post(`${API}/${json_name}/`, payload, options).pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    );
   }
 
   update<T>(json_name: string, id: number, payload: T): Observable<any> {
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    return this.http
-      .put(`${API}/${json_name}/${id}`, payload, options)
-      .map((response: Response) => response.json())
-      .catch((error: any) => Observable.throw(error.json()));
+    const options = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    return this.http.put(`${API}/${json_name}/${id}`, payload, options).pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    );
   }
 
   remove(json_name: string, id: number): Observable<any> {
-    return this.http
-      .delete(`${API}/${json_name}/${id}`)
-      .map((response: Response) => response.json())
-      .catch((error: any) => Observable.throw(error.json()));
+    return this.http.delete(`${API}/${json_name}/${id}`).pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    );
+  }
+
+  errorHandl(error) {
+    let errorMessage = "";
+    if (error.error instanceof ErrorEvent)
+      errorMessage = error.error.message;
+    else
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    console.log(errorMessage);
+    return throwError(errorMessage);
   }
 }

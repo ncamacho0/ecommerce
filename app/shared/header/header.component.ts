@@ -42,11 +42,4 @@ export class HeaderComponent {
     }
   ];
 
-  // child: Child[] = [
-  //   {
-  //     link: '/newProduct',
-  //     name: 'New Product',
-  //     exact: true
-  //   }
-  // ];
 }

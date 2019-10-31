@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-
-// import { ProductOrderDashboardService } from '../../../services/product-order-dashboard.service';
 import { ApiService } from '../../../services/api.service';
-
 import { ProductOrder } from '../../models/product-order.interface';
 
 @Component({
   selector: 'product-order-dashboard',
   styleUrls: ['product-order-dashboard.component.scss'],
   template: `
-    <div class="product-order-dashboard center">
-      <product-order-detail *ngFor="let order of orders" [detail]="order">
-      </product-order-detail>
+  <div class="dashboard center">
+    <div class="container center">
+      <product-order-detail *ngFor="let order of orders" [detail]="order"> </product-order-detail>
     </div>
+  </div>
   `
 })
 export class ProductOrderDashboardComponent {

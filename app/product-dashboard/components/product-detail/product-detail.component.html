@@ -4,7 +4,7 @@
     <div *ngIf="editing">
       <input type="text" [value]="detail.name" (input)="onNameChange(name.value)" #name>
     </div>
-    <div *ngIf="!editing">
+    <div class="product-name"*ngIf="!editing">
       {{ detail.name }}
     </div>
     <button (click)="toggleEdit()">

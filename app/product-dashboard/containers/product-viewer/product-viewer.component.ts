@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import 'rxjs/add/operator/switchMap';
+ //import 'rxjs/add/operator/switchMap';
+ import { switchMap } from 'rxjs/operators';
+
 
 import { ApiService } from '../../../services/api.service';
 
@@ -29,11 +31,11 @@ export class ProductViewerComponent implements OnInit {
     private productService: ApiService
   ) {}
   ngOnInit() {
-    this.route.params
-      .switchMap((data: Product) =>
-        this.productService.getOne(this.json_name, data.id)
-      )
-      .subscribe((data: Product) => (this.product = data));
+
+    this.route.params.pipe(
+      switchMap((data: Product) =>
+        this.productService.getOne(this.json_name, data.id))
+      ) .subscribe((data: Product) => (this.product = data));
   }
   onUpdateProduct(event: Product) {
     this.productService

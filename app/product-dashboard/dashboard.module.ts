@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
+ import { HttpClientModule  } from '@angular/common/http';
+
+
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -20,7 +22,6 @@ import { ProductOrderDetailComponent } from './components/product-order-detail/p
 
 // service
 import { ApiService } from '../services/api.service';
-// import { ProductOrderDashboardService } from '../services/order.service';
 
 const routes: Routes = [
   {
@@ -54,7 +55,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forChild(routes)
   ],
