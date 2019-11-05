@@ -17,10 +17,10 @@ export const dashboardRoutes: Routes = [
       { path: 'home', component: HomeComponent},
       {
         path: 'admin', component: AdminComponent,
-        data: {role: 'Admin'},
+        data: { role: 'Admin' },
         canActivate: [RoleGuard]
       },
-        { path: 'not-allowed', component: NotAllowed }
+      { path: 'not-allowed', component: NotAllowed }
     ]
   }
 ];
