@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
- import { HttpClientModule  } from '@angular/common/http';
-
+import { HttpClientModule  } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,7 +20,7 @@ import { ProductFormNewComponent } from './components/product-form-new/product-f
 import { ProductOrderDetailComponent } from './components/product-order-detail/product-order-detail.component';
 
 // service
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 
 const routes: Routes = [
   {

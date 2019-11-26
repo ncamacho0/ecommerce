@@ -5,7 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
  import { switchMap } from 'rxjs/operators';
 
 
-import { ApiService } from '../../../services/api.service';
+import { ApiService } from '../../../../services/api.service';
 
 import { Product } from '../../models/product.interface';
 
@@ -46,6 +46,6 @@ export class ProductViewerComponent implements OnInit {
     this.goBack();
   }
   goBack() {
-    this.router.navigate(['/products']);
+    this.router.navigate(['/dashboard/products']);
   }
 }

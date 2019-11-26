@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../../services/api.service';
+import { ApiService } from '../../../../services/api.service';
 import { Product } from '../../models/product.interface';
 import { Router } from '@angular/router';
 
@@ -42,6 +42,6 @@ export class ProductDashboardComponent implements OnInit {
   }
 
   handleView(event: Product) {
-    this.router.navigate(['/products', event.id]);
+    this.router.navigate(['/dashboard/products', event.id]);
   }
 }

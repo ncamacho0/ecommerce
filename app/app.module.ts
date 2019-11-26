@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 
 //shared
-import { HeaderComponent } from '../app/shared/header/header.component';
 import { FooterComponent } from '../app/shared/footer/footer.component';
 
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -26,7 +25,6 @@ import { NotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     LoginComponent,
     NotFoundComponent

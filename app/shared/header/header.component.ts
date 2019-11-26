@@ -24,19 +24,19 @@ export class HeaderComponent {
       name: 'Products T',
       subMenu: [
         {
-          link: '/products',
+          link: '/dashboard/products',
           name: 'Products',
           exact: true,
         },
         {
-          link: '/newProduct',
+          link: '/dashboard/newProduct',
           name: 'New Product',
           exact: true
         }
       ]
     },
     {
-      link: '/orders',
+      link: '/dashboard/orders',
       name: 'Orders',
       exact: true
     }

@@ -1,12 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Product } from '../../models/product.interface';
-
-
-@Component({
-  selector: 'product-form-new',
-  styleUrls: ['product-form-new.component.scss'],
-  template: `
-  <div  class="product-form-new center">
+<div  class="product-form-new center">
     <form class="form" (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate>
       <div>
         Product ID:
@@ -64,25 +56,3 @@ import { Product } from '../../models/product.interface';
 
     </form>
   </div>
-  `
-})
-export class ProductFormNewComponent {
-
-  @Input() detail: Product;
-
-  @Output() post: EventEmitter<Product> = new EventEmitter<Product>();
-
-  toggleAvailable(available: boolean) {
-    available = false;
-    if (available) {
-      this.detail.available = !available;
-    }
-  }
-
-  handleSubmit(product: Product, isValid: boolean) {
-    if (isValid) {
-      this.post.emit(product);
-    }
-  }
-
-}

@@ -23,6 +23,12 @@
       "name": "producto 80",
       "available": null,
       "quantity": 19
+    },
+    {
+      "id": 89,
+      "name": "0000",
+      "available": true,
+      "quantity": 0
     }
   ],
   "orders": [
